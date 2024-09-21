@@ -1,0 +1,65 @@
+.Game {
+    display: grid;
+    gap: 2rem;
+}
+
+.card_buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.outerCard,
+.homeCard,
+.awayCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.outerCard {
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,70,121,1) 35%, rgba(0,212,255,1) 100%);
+    border: 2px solid transparent;
+}
+
+.homeCard {
+    text-shadow: 2px 2px 6px rgba(123, 0, 64, 0.7);
+    border: 2px solid red;
+}
+
+.awayCard {
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    border: 2px solid red;
+}
+
+.homeCard:hover,
+.awayCard:hover {
+    background: rgb(114, 114, 101);
+    color: yellow;
+    transform: scale(1.05);
+}
+
+.homeCard:hover .button,
+.awayCard:hover .button {
+    color: yellow;
+    border-color: black;
+    transition: border-color 0.3s, color 0.3s;
+}
+
+/* Button Styles */
+.button {
+    padding: 10px 20px;
+    border: 2px solid transparent; 
+    border-radius: 5px; 
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: yellow;
+}
