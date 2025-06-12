@@ -1,38 +1,41 @@
-/* Navbar Container */
 .sportsNavbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 8rem;
-    background-color: #7a9aab;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    padding: 0 3rem;
-    transition: background-color 0.3s ease;
+    height: 80px;
+    background: rgba(26, 28, 32, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 0 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .sportsNavbar:hover {
     background-color: #6a8b92;
 }
 
-/* Navbar Title */
 .navbar_title {
-    text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.7);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 2rem;
-    color: #f9f871;
-    transition: color 0.3s ease;
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
 }
 
-.navbar_title:hover {
-    color: #fff;
+.navbar_title h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #4CAF50;
+    text-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
 }
-
 
 h1, h3 {
     color: #ecf0f1;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
-
 
 .sportsAuthor,
 .dropdowns {
@@ -50,11 +53,9 @@ h1, h3 {
     transform: scale(1.05);
 }
 
-
 .sportsAuthor + .dropdowns {
     margin-left: 2.5rem;
 }
-
 
 .dropdowns {
     position: relative;
@@ -85,4 +86,71 @@ h1, h3 {
 
 .dropdown-menu a:hover {
     background-color: #f1f1f1;
+}
+
+.sportsDropdown {
+    position: relative;
+}
+
+.sportsDropdown .MuiFormControl-root {
+    min-width: 200px;
+}
+
+.sportsDropdown .MuiInputLabel-root {
+    color: #ffffff;
+}
+
+.sportsDropdown .MuiSelect-select {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.sportsDropdown .MuiOutlinedInput-notchedOutline {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.sportsDropdown .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: #4CAF50;
+}
+
+.sportsDropdown .MuiSelect-icon {
+    color: #ffffff;
+}
+
+.sportsAuthor {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.App {
+    padding-top: 80px;
+}
+
+@media (max-width: 768px) {
+    .sportsNavbar {
+        padding: 0 20px;
+        height: auto;
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .navbar_title {
+        margin-bottom: 15px;
+    }
+
+    .dropdowns {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .sportsDropdown .MuiFormControl-root {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .sportsAuthor {
+        margin-top: 15px;
+    }
 }

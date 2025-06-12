@@ -86,79 +86,79 @@ const Game = ({ item }) => {
       >
         <Card variant="outlined">
           <CardContent className="outerCard">
-            <Box
-              className="home_box"
-              component="span"
-              sx={{
-                display: "inline-block",
-                mx: "2px",
-                transform: "scale(0.8)",
-              }}
-            >
-              <Card className="homeCard">
-                <CardContent>
-                  <Typography gutterBottom variant="h4">
-                    Home Team: {item.home_team}
-                  </Typography>
-                  <CardActions className="card_buttons">
-                    <Button
-                      className="button"
-                      variant="outlined"
-                      size="Medium"
-                      onClick={() => getMoneyLine(item.home_team)}
-                    >
-                      Get Best MoneyLine For Home Team
-                    </Button>
-                    <Button
-                      className="button"
-                      variant="outlined"
-                      size="Medium"
-                      onClick={() => getSpread(item.home_team, true)}
-                    >
-                      Get Best Home Spread
-                    </Button>
-                  </CardActions>
-                </CardContent>
-              </Card>
-            </Box>
-            <Divider orientation="vertical" flexItem>
-              VS
-            </Divider>
-            <Box
-              className="away_box"
-              component="span"
-              sx={{
-                display: "inline-block",
-                mx: "2px",
-                transform: "scale(0.8)",
-              }}
-            >
-              <Card className="awayCard">
-                <CardContent>
-                  <Typography gutterBottom variant="h4">
-                    Away: {item.away_team}
-                  </Typography>
-                  <CardActions className="card_buttons">
-                    <Button
-                      className="button"
-                      variant="outlined"
-                      size="large"
-                      onClick={() => getMoneyLine(item.away_team)}
-                    >
-                      Get Best MoneyLine For Away Team
-                    </Button>
-                    <Button
-                      className="button"
-                      variant="outlined"
-                      size="large"
-                      onClick={() => getSpread(item.away_team, false)}
-                    >
-                      Get Best Away Spread
-                    </Button>
-                  </CardActions>
-                </CardContent>
-              </Card>
-            </Box>
+            <div className="matchup-row">
+              <Box
+                className="home_box"
+                component="span"
+                sx={{
+                  display: "inline-block",
+                  mx: "2px",
+                  transform: "scale(0.8)",
+                }}
+              >
+                <Card className="homeCard">
+                  <CardContent>
+                    <Typography gutterBottom variant="h4">
+                      Home Team: {item.home_team}
+                    </Typography>
+                    <CardActions className="card_buttons">
+                      <Button
+                        className="button"
+                        variant="outlined"
+                        size="Medium"
+                        onClick={() => getMoneyLine(item.home_team)}
+                      >
+                        Get Best MoneyLine For Home Team
+                      </Button>
+                      <Button
+                        className="button"
+                        variant="outlined"
+                        size="Medium"
+                        onClick={() => getSpread(item.home_team, true)}
+                      >
+                        Get Best Home Spread
+                      </Button>
+                    </CardActions>
+                  </CardContent>
+                </Card>
+              </Box>
+              <div className="vertical-divider"></div>
+              <Box
+                className="away_box"
+                component="span"
+                sx={{
+                  display: "inline-block",
+                  mx: "2px",
+                  transform: "scale(0.8)",
+                }}
+              >
+                <Card className="awayCard">
+                  <CardContent>
+                    <Typography gutterBottom variant="h4">
+                      Away Team: {item.away_team}
+                    </Typography>
+                    <CardActions className="card_buttons">
+                      <Button
+                        className="button"
+                        variant="outlined"
+                        size="large"
+                        onClick={() => getMoneyLine(item.away_team)}
+                      >
+                        Get Best MoneyLine For Away Team
+                      </Button>
+                      <Button
+                        className="button"
+                        variant="outlined"
+                        size="large"
+                        onClick={() => getSpread(item.away_team, false)}
+                      >
+                        Get Best Away Spread
+                      </Button>
+                    </CardActions>
+                  </CardContent>
+                </Card>
+              </Box>
+            </div>
           </CardContent>
         </Card>
       </Box>

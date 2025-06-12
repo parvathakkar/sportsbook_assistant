@@ -1,47 +1,44 @@
-import React, { useState } from "react";
+import React from "react";
 import "./navbar.css";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import Matchup from "../matchup/Matchup";
 
-const Navbar = () => {
-  const [sport, setsport] = useState("");
+const Navbar = ({ onSportChange }) => {
   const handleSwitch = (event) => {
-    setsport(event.target.value);
+    onSportChange(event.target.value);
   };
+
   return (
     <div className="sportsNavbar">
       <div className="navbar_title">
-        <h1>Parva's Sportsbook Assistant</h1>
+        <h1>Sportsbook Assistant</h1>
       </div>
       <div className="dropdowns">
         <div className="sportsDropdown">
-          <h3>
-            <FormControl variant="outlined" fullWidth sx={{ m: 1, width: 300 }}>
-              <InputLabel id="my-select-label">Select NFL or NBA</InputLabel>
-              <Select
-                labelId="demo-select-small-label"
-                id="demo-select-small"
-                value={sport}
-                onChange={handleSwitch}
-                label="Select an Option"
-                fullWidth
-                variant="filled"
-              >
-                <MenuItem value="SPORT">
-                  <em></em>
-                </MenuItem>
-                <MenuItem value={"americanfootball_nfl"}>NFL</MenuItem>
-                <MenuItem value={"basketball_nba"}>NBA</MenuItem>
-              </Select>
-            </FormControl>
-          </h3>
+          <FormControl variant="outlined" fullWidth>
+            <InputLabel id="sport-select-label">Select Sport</InputLabel>
+            <Select
+              labelId="sport-select-label"
+              id="sport-select"
+              defaultValue="SPORT"
+              onChange={handleSwitch}
+              label="Select Sport"
+            >
+              <MenuItem value="SPORT">
+                <em>Select a sport</em>
+              </MenuItem>
+              <MenuItem value={"americanfootball_nfl"}>NFL</MenuItem>
+              <MenuItem value={"basketball_nba"}>NBA</MenuItem>
+              <MenuItem value={"icehockey_nhl"}>NHL</MenuItem>
+              <MenuItem value={"baseball_mlb"}>MLB</MenuItem>
+            </Select>
+          </FormControl>
         </div>
       </div>
       <div className="sportsAuthor">
-        <h3>Created By Parva</h3>
+        <span>Created by Parva</span>
       </div>
     </div>
   );
