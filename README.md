@@ -6,6 +6,8 @@
 
 Sportsbook Assistant is a modern web application that provides real-time sports betting insights and analysis for NBA, NHL, NFL, and MLB games. Built with React and Material-UI, this application offers a sleek, user-friendly interface for sports enthusiasts and bettors.
 
+![App Demo](https://i.imgur.com/CFkUXVe.png)
+
 ## Features
 
 ### Multi-Sport Coverage
