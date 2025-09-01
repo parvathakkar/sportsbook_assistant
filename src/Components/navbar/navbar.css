@@ -41,6 +41,7 @@ h1, h3 {
 .dropdowns {
     display: flex;
     align-items: center;
+    gap: 20px;
 }
 
 .sportsAuthor, .dropdowns {
@@ -88,32 +89,58 @@ h1, h3 {
     background-color: #f1f1f1;
 }
 
-.sportsDropdown {
+.sportsDropdown,
+.sportsbookDropdown {
     position: relative;
+    margin-right: 20px;
 }
 
-.sportsDropdown .MuiFormControl-root {
+.sportsDropdown .MuiFormControl-root,
+.sportsbookDropdown .MuiFormControl-root {
     min-width: 200px;
 }
 
-.sportsDropdown .MuiInputLabel-root {
+.sportsDropdown .MuiInputLabel-root,
+.sportsbookDropdown .MuiInputLabel-root {
     color: #ffffff;
 }
 
-.sportsDropdown .MuiSelect-select {
+.sportsDropdown .MuiSelect-select,
+.sportsbookDropdown .MuiSelect-select {
     color: #ffffff;
     font-weight: 500;
 }
 
-.sportsDropdown .MuiOutlinedInput-notchedOutline {
+/* Checkbox styling for sportsbook selector */
+.sportsbookDropdown .MuiCheckbox-root {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.sportsbookDropdown .MuiCheckbox-root.Mui-checked {
+    color: #4CAF50;
+}
+
+.sportsbookDropdown .MuiCheckbox-root:hover {
+    color: #4CAF50;
+}
+
+/* Ensure proper spacing for checkbox items */
+.sportsbookDropdown .MuiMenuItem-root {
+    padding: 8px 16px;
+}
+
+.sportsDropdown .MuiOutlinedInput-notchedOutline,
+.sportsbookDropdown .MuiOutlinedInput-notchedOutline {
     border-color: rgba(255, 255, 255, 0.2);
 }
 
-.sportsDropdown .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+.sportsDropdown .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline,
+.sportsbookDropdown .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
     border-color: #4CAF50;
 }
 
-.sportsDropdown .MuiSelect-icon {
+.sportsDropdown .MuiSelect-icon,
+.sportsbookDropdown .MuiSelect-icon {
     color: #ffffff;
 }
 
@@ -145,7 +172,8 @@ h1, h3 {
         justify-content: center;
     }
 
-    .sportsDropdown .MuiFormControl-root {
+    .sportsDropdown .MuiFormControl-root,
+    .sportsbookDropdown .MuiFormControl-root {
         width: 100%;
         max-width: 300px;
     }

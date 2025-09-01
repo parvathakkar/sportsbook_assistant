@@ -13,9 +13,26 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Divider from "@mui/material/Divider";
 import "./game.css";
 
-const Game = ({ item }) => {
+const Game = ({ item, selectedSportsbooks }) => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [dialogContent, setDialogContent] = useState("");
+
+  // Filter bookmakers based on selected sportsbooks
+  const getFilteredBookmakers = () => {
+    if (selectedSportsbooks.length === 0) {
+      return item.bookmakers; // Show all if none selected
+    }
+    return item.bookmakers.filter(bookmaker => 
+      selectedSportsbooks.includes(bookmaker.title.toLowerCase())
+    );
+  };
+
+  // Validate that at least one sportsbook is selected
+  const validateSportsbookSelection = () => {
+    if (!selectedSportsbooks || selectedSportsbooks.length === 0) {
+      throw new Error("No sportsbooks selected. Please select at least one sportsbook.");
+    }
+  };
 
   const handleDialogClose = () => {
     setDialogOpen(false);
@@ -27,54 +44,82 @@ const Game = ({ item }) => {
    * @returns a map of the teams money lines odds (key=team, value=odds)
    */
   const getMoneyLine = (team) => {
-    const moneyBooks = new Map();
+    try {
+      validateSportsbookSelection();
+      
+      const moneyBooks = new Map();
+      const filteredBookmakers = getFilteredBookmakers();
 
-    item.bookmakers.forEach((bookmaker) => {
-      const outcomes = bookmaker.markets[0].outcomes;
-      const price =
-        outcomes[0].name === team ? outcomes[0].price : outcomes[1].price;
-      moneyBooks.set(bookmaker.title, price);
-    });
+      if (filteredBookmakers.length === 0) {
+        setDialogContent("No sportsbooks available for the selected filters.");
+        setDialogOpen(true);
+        return;
+      }
 
-    const max = Math.max(...moneyBooks.values());
-    const [bestSportsbook] = [...moneyBooks].find(([, v]) => v === max);
+      filteredBookmakers.forEach((bookmaker) => {
+        const outcomes = bookmaker.markets[0].outcomes;
+        const price =
+          outcomes[0].name === team ? outcomes[0].price : outcomes[1].price;
+        moneyBooks.set(bookmaker.title, price);
+      });
 
-    setDialogContent(
-      `The best sportsbook for ${team} moneyline is ${bestSportsbook} with odds of ${max}`
-    );
-    setDialogOpen(true);
+          const max = Math.max(...moneyBooks.values());
+      const [bestSportsbook] = [...moneyBooks].find(([, v]) => v === max);
+
+      setDialogContent(
+        `The best sportsbook for ${team} moneyline is ${bestSportsbook} with odds of ${max}`
+      );
+      setDialogOpen(true);
+    } catch (error) {
+      setDialogContent(error.message);
+      setDialogOpen(true);
+    }
   };
 
   const getSpread = (team, isHome) => {
-    const spreadBooks = new Map();
+    try {
+      validateSportsbookSelection();
+      
+      const spreadBooks = new Map();
+      const filteredBookmakers = getFilteredBookmakers();
 
-    item.bookmakers.forEach((bookmaker) => {
-      const markets = bookmaker.markets;
-      const spreadMarket = markets.find((market) => market.key === "spreads");
-      if (spreadMarket) {
-        const outcomes = spreadMarket.outcomes;
-        const price =
-          outcomes[0].name === team ? outcomes[0].price : outcomes[1].price;
-        spreadBooks.set(bookmaker.title, price);
+      if (filteredBookmakers.length === 0) {
+        setDialogContent("No sportsbooks available for the selected filters.");
+        setDialogOpen(true);
+        return;
       }
-    });
 
-    const max = Math.max(...spreadBooks.values());
-    const [bestSportsbook] = [...spreadBooks].find(([, v]) => v === max);
+      filteredBookmakers.forEach((bookmaker) => {
+        const markets = bookmaker.markets;
+        const spreadMarket = markets.find((market) => market.key === "spreads");
+        if (spreadMarket) {
+          const outcomes = spreadMarket.outcomes;
+          const price =
+            outcomes[0].name === team ? outcomes[0].price : outcomes[1].price;
+          spreadBooks.set(bookmaker.title, price);
+        }
+      });
 
-    const bestSpread = item.bookmakers
-      .find((bm) => bm.title === bestSportsbook)
-      .markets.find((market) => market.key === "spreads")
-      .outcomes.find(
-        (outcome) => outcome.name === (isHome ? team : item.away_team)
-      ).point;
+          const max = Math.max(...spreadBooks.values());
+      const [bestSportsbook] = [...spreadBooks].find(([, v]) => v === max);
 
-    setDialogContent(
-      `The best sportsbook for ${
-        isHome ? team : item.away_team
-      } ${bestSpread} is ${bestSportsbook} with odds of ${max}`
-    );
-    setDialogOpen(true);
+      const bestSpread = item.bookmakers
+        .find((bm) => bm.title === bestSportsbook)
+        .markets.find((market) => market.key === "spreads")
+        .outcomes.find(
+          (outcome) => outcome.name === (isHome ? team : item.away_team)
+        ).point;
+
+      setDialogContent(
+        `The best sportsbook for ${
+          isHome ? team : item.away_team
+        } ${bestSpread} is ${bestSportsbook} with odds of ${max}`
+      );
+      setDialogOpen(true);
+    } catch (error) {
+      setDialogContent(error.message);
+      setDialogOpen(true);
+    }
   };
 
   return (

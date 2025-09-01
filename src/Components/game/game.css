@@ -52,10 +52,10 @@
 /* Button Styles */
 .button {
     padding: 10px 20px;
-    border: px solid transparent; 
+    border: 1px solid transparent; 
     border-radius: 5px; 
     background-color: rgba(255, 255, 255, 0.1);
-    font-size: 4rem;
+    font-size: 1rem;
     font-weight: 400;
     color: white;
     transition: background-color 0.3s, color 0.3s;

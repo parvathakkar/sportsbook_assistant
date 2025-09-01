@@ -3,7 +3,7 @@ import axios from "axios";
 import "./matchup.css";
 import Game from "../game/Game";
 
-const Matchup = ({ sportchosen }) => {
+const Matchup = ({ sportchosen, selectedSportsbooks }) => {
   const apiKey = process.env.REACT_APP_API_KEY;
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
@@ -37,7 +37,7 @@ const Matchup = ({ sportchosen }) => {
   return (
     <div className="Matchup">
       {data.map((item, index) => (
-        <Game key={index} item={item} />
+        <Game key={index} item={item} selectedSportsbooks={selectedSportsbooks} />
       ))}
     </div>
   );
