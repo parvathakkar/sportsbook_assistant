@@ -10,24 +10,21 @@ import {
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
-import Divider from "@mui/material/Divider";
 import "./game.css";
 
 const Game = ({ item, selectedSportsbooks }) => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [dialogContent, setDialogContent] = useState("");
 
-  // Filter bookmakers based on selected sportsbooks
   const getFilteredBookmakers = () => {
     if (selectedSportsbooks.length === 0) {
-      return item.bookmakers; // Show all if none selected
+      return item.bookmakers;
     }
     return item.bookmakers.filter(bookmaker => 
       selectedSportsbooks.includes(bookmaker.title.toLowerCase())
     );
   };
 
-  // Validate that at least one sportsbook is selected
   const validateSportsbookSelection = () => {
     if (!selectedSportsbooks || selectedSportsbooks.length === 0) {
       throw new Error("No sportsbooks selected. Please select at least one sportsbook.");
@@ -167,7 +164,6 @@ const Game = ({ item, selectedSportsbooks }) => {
                   </CardContent>
                 </Card>
               </Box>
-              <div className="vertical-divider"></div>
               <Box
                 className="away_box"
                 component="span"

@@ -1,4 +1,52 @@
+.Matchup {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .line {
-    font-size: 50;
-    font-weight: lighter;
+    font-size: 50px;
+    font-weight: 300;
+    color: #2c3e50;
+}
+
+.error-message {
+    background: rgba(231, 76, 60, 0.1);
+    color: #c0392b;
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(231, 76, 60, 0.3);
+    margin: 20px;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+}
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: #2c3e50;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.no-data {
+    text-align: center;
+    padding: 40px;
+    color: #7f8c8d;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    margin: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+    .Matchup {
+        padding: 1rem;
+    }
+    
+    .line {
+        font-size: 36px;
+    }
 }

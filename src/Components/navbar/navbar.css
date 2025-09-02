@@ -3,38 +3,43 @@
     justify-content: space-between;
     align-items: center;
     height: 80px;
-    background: rgba(26, 28, 32, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
     padding: 0 40px;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0 0 20px 20px;
 }
 
 .sportsNavbar:hover {
-    background-color: #6a8b92;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.2);
 }
 
 .navbar_title {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .navbar_title h1 {
     margin: 0;
-    font-size: 24px;
-    color: #4CAF50;
-    text-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+    font-size: 28px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
 }
 
 h1, h3 {
-    color: #ecf0f1;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    color: #2c3e50;
+    text-shadow: none;
 }
 
 .sportsAuthor,
@@ -45,13 +50,13 @@ h1, h3 {
 }
 
 .sportsAuthor, .dropdowns {
-    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6);
+    text-shadow: none;
     margin-right: 1.5rem;
     transition: transform 0.3s ease;
 }
 
 .sportsAuthor:hover, .dropdowns:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
 .sportsAuthor + .dropdowns {
@@ -71,22 +76,27 @@ h1, h3 {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    border-radius: 16px;
     z-index: 10;
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .dropdown-menu a {
     display: block;
     padding: 0.8rem 1.5rem;
-    color: #333; 
+    color: #2c3e50;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    margin: 4px;
 }
 
 .dropdown-menu a:hover {
-    background-color: #f1f1f1;
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
 }
 
 .sportsDropdown,
@@ -102,53 +112,69 @@ h1, h3 {
 
 .sportsDropdown .MuiInputLabel-root,
 .sportsbookDropdown .MuiInputLabel-root {
-    color: #ffffff;
+    color: #2c3e50;
+    font-weight: 600;
 }
 
 .sportsDropdown .MuiSelect-select,
 .sportsbookDropdown .MuiSelect-select {
-    color: #ffffff;
+    color: #2c3e50;
     font-weight: 500;
-}
-
-/* Checkbox styling for sportsbook selector */
-.sportsbookDropdown .MuiCheckbox-root {
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.sportsbookDropdown .MuiCheckbox-root.Mui-checked {
-    color: #4CAF50;
-}
-
-.sportsbookDropdown .MuiCheckbox-root:hover {
-    color: #4CAF50;
-}
-
-/* Ensure proper spacing for checkbox items */
-.sportsbookDropdown .MuiMenuItem-root {
-    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
 }
 
 .sportsDropdown .MuiOutlinedInput-notchedOutline,
 .sportsbookDropdown .MuiOutlinedInput-notchedOutline {
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(102, 126, 234, 0.3);
+    border-radius: 8px;
 }
 
 .sportsDropdown .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline,
 .sportsbookDropdown .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
-    border-color: #4CAF50;
+    border-color: #667eea;
+    border-width: 2px;
 }
 
 .sportsDropdown .MuiSelect-icon,
 .sportsbookDropdown .MuiSelect-icon {
-    color: #ffffff;
+    color: #667eea;
+}
+
+
+.sportsbookDropdown .MuiCheckbox-root {
+    color: rgba(102, 126, 234, 0.5);
+}
+
+.sportsbookDropdown .MuiCheckbox-root.Mui-checked {
+    color: #667eea;
+}
+
+.sportsbookDropdown .MuiCheckbox-root:hover {
+    color: #667eea;
+}
+
+
+.sportsbookDropdown .MuiMenuItem-root {
+    padding: 8px 16px;
+    border-radius: 8px;
+    margin: 2px 8px;
+    transition: all 0.2s ease;
+}
+
+.sportsbookDropdown .MuiMenuItem-root:hover {
+    background: rgba(102, 126, 234, 0.1);
 }
 
 .sportsAuthor {
-    color: #ffffff;
+    color: #2c3e50;
     font-size: 14px;
     font-weight: 500;
     opacity: 0.8;
+    background: rgba(102, 126, 234, 0.1);
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(102, 126, 234, 0.2);
 }
 
 .App {
@@ -161,6 +187,7 @@ h1, h3 {
         height: auto;
         flex-direction: column;
         padding: 15px;
+        border-radius: 0 0 16px 16px;
     }
 
     .navbar_title {
@@ -170,6 +197,7 @@ h1, h3 {
     .dropdowns {
         width: 100%;
         justify-content: center;
+        margin: 15px 0;
     }
 
     .sportsDropdown .MuiFormControl-root,

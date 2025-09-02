@@ -15,17 +15,8 @@ const Navbar = ({ onSportChange, onSportsbookChange, selectedSportsbooks }) => {
   const handleSportsbookSwitch = (event) => {
     const newSelection = event.target.value;
     console.log("New selection:", newSelection);
-    
-    // Pass the selection directly to parent component
     onSportsbookChange(newSelection);
   };
-
-
-
-
-
-
-
   return (
     <div className="sportsNavbar">
       <div className="navbar_title">
@@ -76,7 +67,6 @@ const Navbar = ({ onSportChange, onSportsbookChange, selectedSportsbooks }) => {
                 },
               }}
             >
-
               <MenuItem value="fanduel">
                 <Checkbox checked={selectedSportsbooks.includes("fanduel")} />
                 <ListItemText primary="FanDuel" />

@@ -1,67 +1,160 @@
 .Game {
-    display: grid;
-    gap: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    width: 100%;
 }
 
 .card_buttons {
     display: flex;
     justify-content: center;
-}
-
-.outerCard,
-.homeCard,
-.awayCard {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 16px;
 }
 
 .outerCard {
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,70,121,1) 35%, rgba(0,212,255,1) 100%);
-    border: 2px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 242, 245, 0.9) 100%);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(102, 126, 234, 0.2);
+    width: 100%;
+    max-width: 1600px;
+}
+
+.homeCard,
+.awayCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
 }
 
 .homeCard {
-    text-shadow: 2px 2px 6px rgba(123, 0, 64, 0.7);
-    border: 2px solid red;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 240, 245, 0.95) 100%);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(231, 76, 60, 0.3);
+    box-shadow: 0 8px 32px rgba(231, 76, 60, 0.15);
 }
 
 .awayCard {
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
-    border: 2px solid red;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 248, 255, 0.95) 100%);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(52, 152, 219, 0.3);
+    box-shadow: 0 8px 32px rgba(52, 152, 219, 0.15);
 }
 
 .homeCard:hover,
 .awayCard:hover {
-    background: rgb(114, 114, 101);
-    color: yellow;
-    transform: scale(1.05);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.98) 100%);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 16px 48px rgba(31, 38, 135, 0.25);
 }
 
 .homeCard:hover .button,
 .awayCard:hover .button {
-    color: yellow;
-    border-color: black;
-    transition: border-color 0.3s, color 0.3s;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: transparent;
+    transform: translateY(-2px);
 }
 
 /* Button Styles */
 .button {
-    padding: 10px 20px;
-    border: 1px solid transparent; 
-    border-radius: 5px; 
-    background-color: rgba(255, 255, 255, 0.1);
-    font-size: 1rem;
-    font-weight: 400;
-    color: white;
-    transition: background-color 0.3s, color 0.3s;
+    padding: 20px 40px;
+    border: 2px solid rgba(102, 126, 234, 0.3);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #667eea;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
+    backdrop-filter: blur(4px);
+    margin: 8px;
+    min-width: 320px;
+    min-height: 60px;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
 }
 
 .button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: yellow;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: transparent;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.matchup-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .Game {
+        padding: 0.5rem;
+    }
+    
+    .matchup-row {
+        gap: 20px;
+    }
+    
+    .outerCard {
+        padding: 25px;
+        max-width: 95%;
+    }
+    
+    .homeCard,
+    .awayCard {
+        padding: 25px;
+        border-radius: 16px;
+        max-width: 100%;
+    }
+    
+    .button {
+        padding: 16px 32px;
+        font-size: 16px;
+        margin: 8px;
+        min-width: 280px;
+        min-height: 55px;
+    }
+}
+
+.button:focus {
+    outline: none;
+    box-shadow: 
+        0 0 0 3px rgba(102, 126, 234, 0.3),
+        0 8px 24px rgba(102, 126, 234, 0.15);
+}
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom selection color */
+::selection {
+    background: rgba(102, 126, 234, 0.3);
+    color: #2c3e50;
 }
